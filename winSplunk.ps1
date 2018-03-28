@@ -5,7 +5,7 @@
 
 $hyper = "html"
 if (Test-Path $hyper) {
-echo "There is a file named $hper within the current directory. This file will be renamed to prevent an error."
+echo "There is a file named $hyper within the current directory. This file will be renamed to prevent an error."
 mv $hyper $hyper".old"
 }
 
@@ -13,7 +13,7 @@ mv $hyper $hyper".old"
 
 wget -O html 'https://www.splunk.com/goto/Download_4_V1'
 
-#use select string to pull Linux version
+#use select string to pull version
 
 $win=cat html | select-string -Pattern "splunk-\d\.\d\.\d\-\w+\-x64\-release\.msi" | % { $_.Matches } | % { $_.Value}
 $uf=echo $win | %{$_ -replace "splunk","splunkforwarder"}
@@ -22,7 +22,7 @@ echo " "
 echo " "
 
 #Grab Build
-$build=$win | select-string "\-(\w+)\-" | % { $_.Matches } | % {$_.Value} | seletct-string "\w+" | % { $_.Matches } | % { $_.Value }
+$build=$win | select-string "\-(\w+)\-" | % { $_.Matches } | % {$_.Value} | select-string "\w+" | % { $_.Matches } | % { $_.Value }
 
 #Grab Version
 $version=$win | select-string "\d\.\d\.\d" | % {$_.Matches } | % {$_.Value }
