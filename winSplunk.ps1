@@ -1,21 +1,9 @@
 #
 #PowerShell script to pull down the latest windows versions of Splunk Enterprise, and Forwarder
-#
-#Checks to see if a file named html is present, and if so, moves it to an .old file.
-
-$hyper = "html"
-if (Test-Path $hyper) {
-echo "There is a file named $hyper within the current directory. This file will be renamed to prevent an error."
-mv $hyper $hyper".old"
-}
-
-#use wget to pull site HTML > html
-
-wget -O html 'https://www.splunk.com/goto/Download_4_V1'
 
 #use select string to pull version
 
-$win=cat html | select-string -Pattern "splunk-\d\.\d\.\d\-\w+\-x64\-release\.msi" | % { $_.Matches } | % { $_.Value}
+$win=curl 'https://www.splunk.com/goto/Download_4_V1' | select-string -Pattern "splunk-\d\.\d\.\d\-\w+\-x64\-release\.msi" | % { $_.Matches } | % { $_.Value}
 $uf=echo $win | %{$_ -replace "splunk","splunkforwarder"}
 
 echo " "
