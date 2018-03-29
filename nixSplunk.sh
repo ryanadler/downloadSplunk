@@ -1,5 +1,7 @@
 
-#writing a bash script to pull the latest Linux version of splunk & Splunk Forwarder
+#
+# Bash Shell Script to download the latest Linux 64bit tgz release for Splunk enterprise and universal forwarder
+#
 
 filename=$(curl 'https://www.splunk.com/goto/Download_4_V1' | grep Linux-x86_64 | perl -lne '/splunk\-\d\.\d\.\d\-\w+\-Linux\-x86_64\.tgz/ && print $&')
 version=$(echo $filename | sed 's/splunk-//g' | sed 's/-.*//g')

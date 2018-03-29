@@ -1,5 +1,6 @@
 #
-#PowerShell script to pull down the latest windows versions of Splunk Enterprise, and Forwarder
+# PowerShell Script to download the latest Windows 64bit msi release for Splunk enterprise and universal forwarder
+#
 
 #use select string to pull version
 

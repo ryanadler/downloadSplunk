@@ -1,5 +1,5 @@
 #
-# Sometimes you just need a script to show you the wget script
+# PowerShell Script to display the different wget statements.
 #
 
 $html=curl 'https://www.splunk.com/goto/Download_4_V1'
