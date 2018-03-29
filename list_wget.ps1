@@ -4,8 +4,8 @@
 
 $html=curl 'https://www.splunk.com/goto/Download_4_V1'
 
-$nixFilename=echo $html | select-string -Pattern "/splunk\-\d\.\d\.\d\-\w+\-Linux\-x86_64\.tgz" |  % { $_.Matches } | % { $_.Value}
-$macFilename=echo $html | select-string -Pattern "/splunk\-\d\.\d\.\d\-\w+\-darwin\-64\.tgz" | % { $_.Matches } | % { $_.Value}
+$nixFilename=echo $html | select-string -Pattern "splunk\-\d\.\d\.\d\-\w+\-Linux\-x86_64\.tgz" |  % { $_.Matches } | % { $_.Value}
+$macFilename=echo $html | select-string -Pattern "splunk\-\d\.\d\.\d\-\w+\-darwin\-64\.tgz" | % { $_.Matches } | % { $_.Value}
 $winFilename=echo $html | select-string -Pattern "splunk-\d\.\d\.\d\-\w+\-x64\-release\.msi" | % { $_.Matches } | % { $_.Value}
 
 $version=$winFilename | select-string "\d\.\d\.\d" | % {$_.Matches } | % {$_.Value }
