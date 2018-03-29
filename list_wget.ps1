@@ -22,19 +22,24 @@ echo " Windows: " $winFilename
 echo " "
 echo " "
 echo "==== Linux WGET Statements ===="
-echo wget -O $filename 'https://www.splunk.com/bin/splunk/DownloadActivityServlet?architecture=x86_64&platform=linux&version='$version'&product=splunk&filename='$nixFilename'&wget=true'
+$nix1="https://www.splunk.com/bin/splunk/DownloadActivityServlet?architecture=x86_64&platform=linux&version=$version&product=splunk&filename=$nixFilename&wget=true"
+$nix2="https://www.splunk.com/bin/splunk/DownloadActivityServlet?architecture=x86_64&platform=linux&version=$version&product=universalforwarder&filename=$nixFW&wget=true"
+echo wget -O $nixFilename "$nix1" 
 echo " "
-echo wget -O $nixFW 'https://www.splunk.com/bin/splunk/DownloadActivityServlet?architecture=x86_64&platform=linux&version='$version'&product=universalforwarder&filename='$nixFW'&wget=true'
+echo wget -O $nixFW "$nix2"
 echo " "
 echo " "
-echo "==== Mac WGET Statement ====" 
-echo wget -O $macFilename 'https://www.splunk.com/bin/splunk/DownloadActivityServlet?architecture=x86&platform=macos&version='$version'&product=splunk&filename='$macFilename'&wget=true'
+echo "==== Mac WGET Statement ===="
+$mac1="https://www.splunk.com/bin/splunk/DownloadActivityServlet?architecture=x86&platform=macos&version=$version&product=splunk&filename=$macFilename&wget=true" 
+echo wget -O $macFilename "$mac1"
 echo " "
 echo " "
 echo "==== Windows WGET Statements ===="
-echo wget -O $winFilename 'https://www.splunk.com/bin/splunk/DownloadActivityServlet?architecture=x86_64&platform=windows&version='$version'&product=splunk&filename='$winFilename'&wget=true'
+$win1="https://www.splunk.com/bin/splunk/DownloadActivityServlet?architecture=x86_64&platform=windows&version=$version&product=splunk&filename=$winFilename&wget=true"
+$win2="https://www.splunk.com/bin/splunk/DownloadActivityServlet?architecture=x86_64&platform=windows&version=$version&product=universalforwarder&filename=$winFW&wget=true"
+echo wget -O $winFilename "$win1"
 echo " "
-echo wget -O $winFilename 'https://www.splunk.com/bin/splunk/DownloadActivityServlet?architecture=x86_64&platform=windows&version='$version'&product=universalforwarder&filename='$winFW'&wget=true'
+echo wget -O $winFilename "$win2"
 
 echo " "
 echo "Complete"

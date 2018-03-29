@@ -22,7 +22,7 @@ echo " Windows: " $winFilename
 echo " "
 echo " "
 echo "==== Linux WGET Statements ===="
-echo wget -O $filename 'https://www.splunk.com/bin/splunk/DownloadActivityServlet?architecture=x86_64&platform=linux&version='$version'&product=splunk&filename='$nixFilename'&wget=true' -q --show-progress
+echo wget -O $nixFilename 'https://www.splunk.com/bin/splunk/DownloadActivityServlet?architecture=x86_64&platform=linux&version='$version'&product=splunk&filename='$nixFilename'&wget=true' -q --show-progress
 echo " "
 echo wget -O $nixFW 'https://www.splunk.com/bin/splunk/DownloadActivityServlet?architecture=x86_64&platform=linux&version='$version'&product=universalforwarder&filename='$nixFW'&wget=true' -q --show-progress
 echo " "
