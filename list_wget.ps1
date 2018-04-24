@@ -39,7 +39,7 @@ $win1="https://www.splunk.com/bin/splunk/DownloadActivityServlet?architecture=x8
 $win2="https://www.splunk.com/bin/splunk/DownloadActivityServlet?architecture=x86_64&platform=windows&version=$version&product=universalforwarder&filename=$winFW&wget=true"
 echo "wget -O $winFilename "$win1""
 echo " "
-echo "wget -O $winFilename "$win2""
+echo "wget -O $winFW "$win2""
 
 echo " "
 echo "Complete"

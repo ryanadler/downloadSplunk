@@ -34,7 +34,7 @@ echo " "
 echo "==== Windows WGET Statements ===="
 echo wget -O $winFilename 'https://www.splunk.com/bin/splunk/DownloadActivityServlet?architecture=x86_64&platform=windows&version='$version'&product=splunk&filename='$winFilename'&wget=true'
 echo " "
-echo wget -O $winFilename 'https://www.splunk.com/bin/splunk/DownloadActivityServlet?architecture=x86_64&platform=windows&version='$version'&product=universalforwarder&filename='$winFW'&wget=true'
+echo wget -O $winFW 'https://www.splunk.com/bin/splunk/DownloadActivityServlet?architecture=x86_64&platform=windows&version='$version'&product=universalforwarder&filename='$winFW'&wget=true'
 
 echo " "
 echo "Complete"
