@@ -1,14 +1,13 @@
-#
 # Powershell to list the different wget version statements (version 7.0.x)
 #
 #pull down HTML to sort through
 wget -O html 'https://www.splunk.com/en_us/download/sem-os.html'
 
 echo " "
-echo " The following versions of Splunk 7 are available for download: "
+echo " The following 7.x.x versions are available for download: "
 echo " "
 
-cat html | select-string -Pattern "7\.\d\.\d" | % { $_.Matches } | % { $_.Value} | Select-Object -unique
+cat html | select-string -Pattern "7.\d\.\d" | % { $_.Matches } | % { $_.Value} | Select-Object -unique
 
 # Input
 echo " "
@@ -42,19 +41,17 @@ echo " "
 
 cat html | select-string -Pattern "splunk-$req-.*?(x64|x86_64).*?\.(tgz)" | % { $_.Matches } | % { $_.Value}
 $linux = cat html | select-string -Pattern "splunk-$req-.*?(x64|x86_64).*?\.(tgz)" | % { $_.Matches } | % { $_.Value}
-$linuxUF = echo $linux | %{$_ -replace "splunk","splunkforwader"}
+$linuxUF=echo $linux | %{$_ -replace "splunk","splunkforwarder"}
+echo $linuxUF
 
 echo " "
 
 #WGET Variable Statements
 $wgetNix="https://www.splunk.com/bin/splunk/DownloadActivityServlet?architecture=x86_64&platform=linux&version=$version&product=splunk&filename=splunk-$version-$build-Linux-x86_64.tgz&wget=true"
-
-$wgetNixUF="https://www.splunk.com/bin/splunk/DownloadActivitySerlet?architecture=x86_64&platform=linux&version=$version&product=universalforwarder&filename=splunkforwarder-$version-$build-Linux-x86_64.tgz&wget=true"
+$wgetNixUF="https://www.splunk.com/bin/splunk/DownloadActivityServlet?architecture=x86_64&platform=linux&version=$version&product=universalforwarder&filename=splunkforwarder-$version-$build-Linux-x86_64.tgz&wget=true"
 
 wget -O $linux "$wgetNix"
-wget -O $linuxUF "$wgetNifUF"
-
-echo " "
+wget -O $linuxUF "$wgetNixUF"
 echo "Linux Enterprise and Forwarder Downloaded"
 
 #########		    ##########
@@ -67,18 +64,16 @@ echo " "
 
 cat html | select-string -Pattern "splunk-$req-.*?(x64|x86_64).*?\.(msi)" | % { $_.Matches } | % { $_.Value}
 $windows = cat html | select-string -Pattern "splunk-$req-.*?(x64|x86_64).*?\.(msi)" | % { $_.Matches } | % { $_.Value}
-$windowsUF = echo $windows | %{$_ -replace "splunk","splunkforwader"}
+$windowsUF =echo $windows | %{$_ -replace "splunk","splunkforwarder"}
+echo $windowsUF
 
 #WGET Variable Statements
 $wgetWin="https://www.splunk.com/bin/splunk/DownloadActivityServlet?architecture=x86_64&platform=windows&version=$version&product=splunk&filename=splunk-$version-$build-x64-release.msi&wget=true"
-
-$wgetWinUF="https://www.splunk.com/bin/splunk/DownloadActivityServlet?architecture=x86_64&platform=windows&version=$version&product=universalforwarder&filename=splunk-$version-$build-x64-release.msi&wget=true"
-
+$wgetWinUF="https://www.splunk.com/bin/splunk/DownloadActivityServlet?architecture=x86_64&platform=windows&version=$version&product=universalforwarder&filename=splunkforwarder-$version-$build-x64-release.msi&wget=true"
 
 wget -O $windows "$wgetWin"
 wget -O $windowsUF "$wgetWinUF"
-
-echo " "
 echo "Windows Enterprise Downloaded"
-
+echo " "
+echo "Script Complete"
 rm html
