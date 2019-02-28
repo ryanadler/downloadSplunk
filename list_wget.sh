@@ -4,9 +4,9 @@
 
 html=$(curl 'https://www.splunk.com/goto/Download_4_V1' -s)
 
-nixFilename=$(echo $html | grep Linux-x86_64 | perl -lne '/splunk\-\d\.\d\.\d\-\w+\-Linux\-x86_64\.tgz/ && print $&')
-macFilename=$(echo $html | grep darwin | perl -lne '/splunk\-\d\.\d\.\d\-\w+\-darwin\-64\.tgz/ && print $&')
-winFilename=$(echo $html | grep release.msi | perl -lne '/splunk-\d\.\d\.\d\-\w+\-x64\-release\.msi/ && print $&')
+nixFilename=$(echo $html | grep Linux-x86_64 | perl -lne '/splunk\-\d\.\d\.\d(\.\d\-|\-)\w+\-Linux\-x86_64\.tgz/ && print $&')
+macFilename=$(echo $html | grep darwin | perl -lne '/splunk\-\d\.\d\.\d(\.\d\-|\-)\w+\-darwin\-64\.tgz/ && print $&')
+winFilename=$(echo $html | grep release.msi | perl -lne '/splunk\-\d\.\d\.\d(\.\d\-|\-)\w+\-x64\-release\.msi/ && print $&')
 
 version=$(echo $nixFilename | sed 's/splunk-//g' | sed 's/-.*//g')
 nixFW=$(echo $nixFilename | sed 's/splunk/splunkforwarder/g')
