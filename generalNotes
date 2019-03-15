@@ -1,0 +1,3 @@
+#work wget for arm platform into scripts
+
+wget -O splunkforwarder-7.2.4-8a94541dcfac-Linux-arm.tgz 'https://www.splunk.com/bin/splunk/DownloadActivityServlet?architecture=ARM&platform=linux&version=7.2.4&product=universalforwarder&filename=splunkforwarder-7.2.4-8a94541dcfac-Linux-arm.tgz&wget=true'
