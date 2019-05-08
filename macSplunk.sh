@@ -3,7 +3,7 @@
 # Bash Shell Script to download the latest Mac tgz release for Splunk enterprise.
 #
 
-filename=$(curl 'https://www.splunk.com/goto/Download_4_V1' | grep darwin | perl -lne '/splunk\-\d\.\d\.\d(\.\d\-|\-)\w+\-darwin\-64\.tgz/ && print $&')
+filename=$(curl 'https://www.splunk.com/en_us/download/sem.html' | grep darwin | perl -lne '/splunk\-\d\.\d\.\d(\.\d\-|\-)\w+\-darwin\-64\.tgz/ && print $&')
 version=$(echo $filename | sed 's/splunk-//g' | sed 's/-.*//g')
 
 echo " "

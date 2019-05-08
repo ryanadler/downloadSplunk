@@ -2,7 +2,7 @@
 # PowerShell Script to display the different wget statements.
 #
 
-$html=curl 'https://www.splunk.com/goto/Download_4_V1'
+$html=curl 'https://www.splunk.com/en_us/download/sem.html'
 
 $nixFilename=echo $html | select-string -Pattern "splunk\-\d\.\d\.\d\-\w+\-Linux\-x86_64\.tgz" |  % { $_.Matches } | % { $_.Value}
 $macFilename=echo $html | select-string -Pattern "splunk\-\d\.\d\.\d\-\w+\-darwin\-64\.tgz" | % { $_.Matches } | % { $_.Value}

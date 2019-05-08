@@ -12,7 +12,7 @@ if (Test-Path $hyper) {
 
 #Use curl to pull site HTML > html
 
-wget -O html 'https://www.splunk.com/goto/Download_4_V1'
+wget -O html 'https://www.splunk.com/en_us/download/sem.html'
 
 #Use select string to pull Linux version
 
