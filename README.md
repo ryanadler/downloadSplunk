@@ -1,1 +1,3 @@
-These scripts were created to allow developers/Splunk administrators to pull the latest or specific versions of Splunk and forwarders for their environments. Instead of going through Splunk's GUI, we do this programatically using bash, or PowerShell scripting.
+# These scripts were created to allow anyone to pull either latest
+# or specific versions of Splunk into their environments.
+# Please use responsibly.

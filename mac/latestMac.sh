@@ -1,4 +1,3 @@
-
 #
 # Bash Shell Script to download the latest Mac tgz release for Splunk enterprise.
 #
