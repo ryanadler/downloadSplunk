@@ -12,7 +12,7 @@ echo
 echo "Please enter a previous release to download. Example: 7.3.4"
 echo
 read version
-filename=$(curl -s 'https://www.splunk.com/page/previous_releases' | grep Linux-x86_64 | perl -lne '/splunk\-'$version'\-\w+\-Linux\-x86_64\.tgz/ && print $&')
+filename=$(curl -s 'https://www.splunk.com/en_us/download/previous-releases.html' | grep Linux-x86_64 | perl -lne '/splunk\-'$version'\-\w+\-Linux\-x86_64\.tgz/ && print $&')
 echo
 echo "Downloading Enterprise Installation"
 echo
