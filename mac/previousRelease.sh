@@ -13,7 +13,7 @@ echo
 read version
 echo $version
 echo
-filename=$(wget 'https://www.splunk.com/page/previous_releases' && cat previous_releases | grep darwin | perl -lne "/splunk\-\d\.\d\.\d\-\w+\-darwin\-64\.tgz/ && print $&" | grep "7.3.4")
+filename=$(wget 'https://www.splunk.com/page/previous_releases' && cat previous_releases | grep darwin | perl -lne "/splunk\-\d\.\d\.\d\-\w+\-darwin\-64\.tgz/ && print $&" | grep "$version")
 echo $filename
 rm previous_releases
 echo
