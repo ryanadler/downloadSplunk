@@ -4,7 +4,7 @@
 # Bash Shell Script to download the latest Linux 64bit tgz release for Splunk enterprise and universal forwarder
 #
 
-filename=$(curl -s 'https://www.splunk.com/en_us/download/sem.html' | grep Linux-x86_64 | perl -lne '/splunk\-\d\.\d\.\d(\.\d\-|\-)\w+\-Linux\-x86_64\.tgz/ && print $&')
+filename=$(curl -s 'https://www.splunk.com/en_us/download/splunk-enterprise.html' | grep Linux-x86_64 | perl -lne '/splunk\-\d\.\d\.\d(\.\d\-|\-)\w+\-Linux\-x86_64\.tgz/ && print $&')
 version=$(echo $filename | sed 's/splunk-//g' | sed 's/-.*//g')
 fw=$(echo $filename | sed 's/splunk/splunkforwarder/g')
 
