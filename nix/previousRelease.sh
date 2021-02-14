@@ -3,7 +3,7 @@
 #
 
 echo
-latest=$(curl -s 'https://www.splunk.com/en_us/download/sem.html' | grep Linux-x86_64 | perl -lne '/splunk\-\d\.\d\.\d(\.\d\-|\-)\w+\-Linux\-x86_64\.tgz/ && print $&')
+latest=$(curl -s 'https://www.splunk.com/en_us/download/splunk-enterprise.html' | grep Linux-x86_64 | perl -lne '/splunk\-\d\.\d\.\d(\.\d\-|\-)\w+\-Linux\-x86_64\.tgz/ && print $&')
 echo
 echo "The latest Linux release:"
 echo
