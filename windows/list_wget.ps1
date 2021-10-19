@@ -1,47 +1,101 @@
-#
-# PowerShell Script to display the different wget statements.
-#
+# Clear Screen
+clear
+# Grab the Latest Splunk versions and Variables
+wget -O splunkDownload.html 'https://www.splunk.com/en_us/download/splunk-enterprise.html'
+$html=cat splunkDownload.html
+$nixtgzFilename=$html | Select-String -Pattern "splunk\-\d.*?Linux\-x86_64\.tgz" |  % { $_.Matches } | % { $_.Value}
+$nixrpmFilename=$html | Select-String -Pattern "splunk\-\d.*?\.rpm" |  % { $_.Matches } | % { $_.Value}
+$winFilename=$html | select-string -Pattern "splunk\-\d.*?\-x64\-release\.msi" | % { $_.Matches } | % { $_.Value}
+$version=$nixtgzFilename | %{$_ -replace "splunk-",""} | %{$_ -replace "\-.*",""}
+$build=$nixtgzFilename | %{$_ -replace "splunk-.*?\-",""}  | %{$_ -replace "\-.*",""}
+rm splunkDownload.html
+# Engage with the User
+echo ""
+echo ""
+echo "Welcome To The Splunk Download Script."
+echo ""
+echo "The Latest Release Of Splunk is: 
+Version: $version 
+Build: $build"
+echo ""
+$grabLatest = Read-Host "Would you like WGET statements for the Latest Version? (y/n)"
+if ([string]::IsNullOrWhiteSpace($grabLatest))
+{ $grabLatest = "y" }
+echo ""
+if ($grabLatest -eq 'y')
+{       
+        echo ""
+        echo "Displaying WGET Statements for Splunk:
+        Version: $version
+        Build: $build"
+    
+        echo ""
+        echo "-------- Linux Tarball (TGZ) "
+        echo ""
+        echo "Enterprise:"
+        echo "wget -O splunk-$version-$build-Linux-x86_64.tgz 'https://download.splunk.com/products/splunk/releases/$version/linux/splunk-$version-$build-Linux-x86_64.tgz'"
+        echo ""
+        echo "Splunk Forwarder:"
+        echo "wget -O splunkforwarder-$version-$build-Linux-x86_64.tgz 'https://download.splunk.com/products/universalforwarder/releases/$version/linux/splunkforwarder-$version-$build-Linux-x86_64.tgz'"
+        echo ""
 
-$html=curl 'https://www.splunk.com/en_us/download/sem.html'
+        echo "-------- RHEL Package Manager (RPM) "
+        echo ""
+        echo "Enterprise:"
+        echo "wget -O splunk-$version-$build-linux-2.6-x86_64.rpm 'https://download.splunk.com/products/splunk/releases/$version/linux/splunk-$version-$build-linux-2.6-x86_64.rpm'"
+        echo ""
+        echo "Splunk Forwarder:"
+        echo "wget -O splunkforwarder-$version-$build-linux-2.6-x86_64.rpm 'https://download.splunk.com/products/universalforwarder/releases/$version/linux/splunkforwarder-$version-$build-linux-2.6-x86_64.rpm'"
+        echo ""
 
-$nixFilename=echo $html | select-string -Pattern "splunk\-\d\.\d\.\d\-\w+\-Linux\-x86_64\.tgz" |  % { $_.Matches } | % { $_.Value}
-$macFilename=echo $html | select-string -Pattern "splunk\-\d\.\d\.\d\-\w+\-darwin\-64\.tgz" | % { $_.Matches } | % { $_.Value}
-$winFilename=echo $html | select-string -Pattern "splunk-\d\.\d\.\d\-\w+\-x64\-release\.msi" | % { $_.Matches } | % { $_.Value}
+        echo "-------- Windows Installation (MSI) "
+        echo ""
+        echo "Enterprise:"
+        echo "wget -O splunk-$version-$build-x64-release.msi 'https://download.splunk.com/products/splunk/releases/$version/linux/splunk-$version-$build-x64-release.msi'"
+        echo ""
+        echo "Splunk Forwarder:"
+        echo "wget -O splunkforwarder-$version-$build-x64-release.msi 'https://download.splunk.com/products/universalforwarder/releases/$version/linux/splunkforwarder-$version-$build-x64-release.msi'"
+}
 
-$version=$winFilename | select-string "\d\.\d\.\d" | % {$_.Matches } | % {$_.Value }
-$nixFW=echo $nixFilename | %{$_ -replace "splunk","splunkforwarder"}
-$winFW=echo $winFilename | %{$_ -replace "splunk","splunkforwarder"}
+if ($grabLatest -eq 'n')
+{
+    $html=curl 'https://www.splunk.com/page/previous_releases' 
+    $req_version = Read-Host "Which Version Would You Like? (example: 7.2.10.1 or 8.1.6)"
+    $version=$html | select-string -Pattern "splunk-$req_version-.*?(x64|x86_64).*?\.(rpm)" | % { $_.Matches } | % { $_.Value} | Select-Object -unique | %{$_ -replace "splunk\-", ""} | %{$_ -replace "\-.*", ""}
+    $build=$html | select-string -Pattern "splunk-$req_version-.*?(x64|x86_64).*?\.(rpm)" | % { $_.Matches } | % { $_.Value} | Select-Object -unique | %{$_ -replace "splunk\-.*?\-", ""} | %{$_ -replace "\-.*", ""}
+        
+        echo ""
+        echo "Displaying WGET Statements for Splunk:
+        Version: $version
+        Build: $build"
+    
+        echo ""
+        echo "-------- Linux Tarball (TGZ) "
+        echo ""
+        echo "Enterprise:"
+        echo "wget -O splunk-$version-$build-Linux-x86_64.tgz 'https://download.splunk.com/products/splunk/releases/$version/linux/splunk-$version-$build-Linux-x86_64.tgz'"
+        echo ""
+        echo "Splunk Forwarder:"
+        echo "wget -O splunkforwarder-$version-$build-Linux-x86_64.tgz 'https://download.splunk.com/products/universalforwarder/releases/$version/linux/splunkforwarder-$version-$build-Linux-x86_64.tgz'"
+        echo ""
 
-echo " "
-echo " "
-echo " Linux: " $nixFilename
-echo " "
-echo " Mac: " $macFilename
-echo " "
-echo " Windows: " $winFilename
-echo " "
-echo " "
-echo "==== Linux WGET Statements ===="
-$nix1="https://www.splunk.com/bin/splunk/DownloadActivityServlet?architecture=x86_64&platform=linux&version=$version&product=splunk&filename=$nixFilename&wget=true"
-$nix2="https://www.splunk.com/bin/splunk/DownloadActivityServlet?architecture=x86_64&platform=linux&version=$version&product=universalforwarder&filename=$nixFW&wget=true"
-echo "wget -O $nixFilename "$nix1""
-echo " "
-echo "wget -O $nixFW "$nix2""
-echo " "
-echo " "
-echo "==== Mac WGET Statement ===="
-$mac1="https://www.splunk.com/bin/splunk/DownloadActivityServlet?architecture=x86&platform=macos&version=$version&product=splunk&filename=$macFilename&wget=true" 
-echo "wget -O $macFilename "$mac1""
-echo " "
-echo " "
-echo "==== Windows WGET Statements ===="
-$win1="https://www.splunk.com/bin/splunk/DownloadActivityServlet?architecture=x86_64&platform=windows&version=$version&product=splunk&filename=$winFilename&wget=true"
-$win2="https://www.splunk.com/bin/splunk/DownloadActivityServlet?architecture=x86_64&platform=windows&version=$version&product=universalforwarder&filename=$winFW&wget=true"
-echo "wget -O $winFilename "$win1""
-echo " "
-echo "wget -O $winFW "$win2""
+        echo "-------- RHEL Package Manager (RPM) "
+        echo ""
+        echo "Enterprise:"
+        echo "wget -O splunk-$version-$build-linux-2.6-x86_64.rpm 'https://download.splunk.com/products/splunk/releases/$version/linux/splunk-$version-$build-linux-2.6-x86_64.rpm'"
+        echo ""
+        echo "Splunk Forwarder:"
+        echo "wget -O splunkforwarder-$version-$build-linux-2.6-x86_64.rpm 'https://download.splunk.com/products/universalforwarder/releases/$version/linux/splunkforwarder-$version-$build-linux-2.6-x86_64.rpm'"
+        echo ""
 
-echo " "
-echo "Complete"
-
-
+        echo "-------- Windows Installation (MSI) "
+        echo ""
+        echo "Enterprise:"
+        echo "wget -O splunk-$version-$build-x64-release.msi 'https://download.splunk.com/products/splunk/releases/$version/linux/splunk-$version-$build-x64-release.msi'"
+        echo ""
+        echo "Splunk Forwarder:"
+        echo "wget -O splunkforwarder-$version-$build-x64-release.msi 'https://download.splunk.com/products/universalforwarder/releases/$version/linux/splunkforwarder-$version-$build-x64-release.msi'"
+}
+echo ""
+echo "Thank you, and have a day"
+echo ""
