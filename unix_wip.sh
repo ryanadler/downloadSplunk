@@ -51,10 +51,10 @@ if ($grabLatest -eq 'y')
         echo "-------- Windows Installation (MSI) "
         echo ""
         echo "Enterprise:"
-        echo "wget -O splunk-$version-$build-x64-release.msi 'https://download.splunk.com/products/splunk/releases/$version/linux/splunk-$version-$build-x64-release.msi'"
+        echo "wget -O splunk-$version-$build-x64-release.msi 'https://download.splunk.com/products/splunk/releases/$version/windows/splunk-$version-$build-x64-release.msi'"
         echo ""
         echo "Splunk Forwarder:"
-        echo "wget -O splunkforwarder-$version-$build-x64-release.msi 'https://download.splunk.com/products/universalforwarder/releases/$version/linux/splunkforwarder-$version-$build-x64-release.msi'"
+        echo "wget -O splunkforwarder-$version-$build-x64-release.msi 'https://download.splunk.com/products/universalforwarder/releases/$version/windows/splunkforwarder-$version-$build-x64-release.msi'"
 }
 
 if ($grabLatest -eq 'n')
@@ -91,10 +91,10 @@ if ($grabLatest -eq 'n')
         echo "-------- Windows Installation (MSI) "
         echo ""
         echo "Enterprise:"
-        echo "wget -O splunk-$version-$build-x64-release.msi 'https://download.splunk.com/products/splunk/releases/$version/linux/splunk-$version-$build-x64-release.msi'"
+        echo "wget -O splunk-$version-$build-x64-release.msi 'https://download.splunk.com/products/splunk/releases/$version/windows/splunk-$version-$build-x64-release.msi'"
         echo ""
         echo "Splunk Forwarder:"
-        echo "wget -O splunkforwarder-$version-$build-x64-release.msi 'https://download.splunk.com/products/universalforwarder/releases/$version/linux/splunkforwarder-$version-$build-x64-release.msi'"
+        echo "wget -O splunkforwarder-$version-$build-x64-release.msi 'https://download.splunk.com/products/universalforwarder/releases/$version/windows/splunkforwarder-$version-$build-x64-release.msi'"
 }
 echo ""
 echo "Thank you, and have a day"
