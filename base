@@ -1,0 +1,23 @@
+building out wget statements:
+Linux tgz 
+Linux deb
+Linux rpm
+osx tgz
+osx intel dmg
+osx 10.11 intel dmg
+windows zip
+windows msi
+
+
+https://download.splunk.com/products/splunk/releases
+
+
+linux/splunk-$version-$build-Linux-x86_64.tgz
+linux/splunk-$version-$build-linux-2.6-amd64.deb
+linux/splunk-$version-$build-linux-2.6-x86_64-fips.rpm
+linux/splunk-$version-$build-linux-2.6-x86_64.rpm
+osx/splunk-$version-$build-darwin-64.tgz
+osx/splunk-$version-$build-macosx-10.11-intel.dmg
+osx/splunk-$version-$build-macosx-intel.dmg
+windows/splunk-$version-$build-windows-64.zip
+windows/splunk-$version-$build-x64-release.msi
