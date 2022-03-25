@@ -1,6 +1,6 @@
 #!/bin/bash
 
-version_list=$(curl -s https://raw.githubusercontent.com/ryanadler/downloadSplunk/main/version.list | grep -v version | grep -v missing)
+version_list=$(curl -s https://raw.githubusercontent.com/ryanadler/downloadSplunk/main/version.list | grep -v version | grep -v missing | grep -vE "^#")
 wget -O splunkDownload.html 'https://www.splunk.com/en_us/download/splunk-enterprise.html' -q
 base=$(grep -oE "splunk\-\d.*?\.rpm" splunkDownload.html| head -1)
 version=$(echo $base | grep -oe "\(\d\.\d\.\d\|\d\.\d\.\d\.\d\)")
