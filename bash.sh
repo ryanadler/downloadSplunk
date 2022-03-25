@@ -2,11 +2,12 @@
 
 version_list=$(curl -s https://raw.githubusercontent.com/ryanadler/downloadSplunk/main/version.list | grep -v version | grep -v missing | grep -vE "^#")
 wget -O splunkDownload.html 'https://www.splunk.com/en_us/download/splunk-enterprise.html' -q
-base=$(grep -oE "splunk\-\d.*?\.rpm" splunkDownload.html| head -1)
-version=$(echo $base | grep -oe "\(\d\.\d\.\d\|\d\.\d\.\d\.\d\)")
+base=$(cat splunkDownload.html | grep -oE "splunk\-[[:digit:]].*linux-2.6-x86_64.rpm\" data-link" | sed 's/\".*//g' | head -1)
+version=$(echo $base | grep -oe "\([[:digit:]]\.[[:digit:]]\.[[:digit:]]\.[[:digit:]]\|[[:digit:]]\.[[:digit:]]\.[[:digit:]]\)")
 build=$(echo $base | grep -oe "\w\{7,\}")
 rm splunkDownload.html
 clear
+
 # Engage with the User
 echo
 echo
@@ -68,6 +69,25 @@ if [ $grabLatest = "y" ]; then
 	echo "-- Intel 10.11 (DMG)"
 	echo "wget -O splunk-$version-$build-macosx-10.11-intel.dmg 'https://download.splunk.com/products/splunk/releases/$version/osx/splunk-$version-$build-macosx-10.11-intel.dmg'"
 	echo "wget -O splunkforwarder-$version-$build-macosx-10.11-intel.dmg 'https://download.splunk.com/products/universalforwarder/releases/$version/osx/splunkforwarder-$version-$build-macosx-10.11-intel.dmg'"
+	echo
+	echo
+	echo "-------- Solaris --------"
+	echo 
+	echo "-- TarZ"
+	echo "wget -O splunk-$version-$build-SunOS-sparc.tar.Z 'https://download.splunk.com/products/splunk/releases/$version/solaris/splunkforwarder-$version-$build-SunOS-sparc.tar.Z'"
+	echo "wget -O splunkforwarder-$version-$build-SunOS-sparc.tar.Z 'https://download.splunk.com/products/universalforwarder/releases/$version/solaris/splunkforwarder-$version-$build-SunOS-sparc.tar.Z'"
+	echo 
+	echo "-- P5P"
+	echo "wget -O splunk-$version-$build-solaris-sparc.p5p 'https://download.splunk.com/products/splunk/releases/$version/solaris/splunkforwarder-$version-$build-solaris-sparc.p5p'"
+	echo "wget -O splunkforwarder-$version-$build-solaris-sparc.p5p 'https://download.splunk.com/products/universalforwarder/releases/$version/solaris/splunkforwarder-$version-$build-solaris-sparc.p5p'"
+	echo
+	echo
+	echo "-------- AIX --------"
+	echo
+	echo "--PowerPC"
+	echo "wget -O splunk-$version-$build-AIX-powerpc.tgz 'https://download.splunk.com/products/splunk/releases/$version/aix/splunk-$version-$build-AIX-powerpc.tgz'"
+	echo "wget -O splunkforwarder-$version-$build-AIX-powerpc.tgz 'https://download.splunk.com/products/universalforwarder/releases/$version/aix/splunk-$version-$build-AIX-powerpc.tgz'"
+	echo
 
 elif [ $grabLatest = "n" ]; then
         echo "Which version would you like? Example: (8.1.8 or 7.2.10.1)"
@@ -128,6 +148,25 @@ elif [ $grabLatest = "n" ]; then
 	echo "-- Intel 10.11 (DMG)"
 	echo "wget -O splunk-$version-$build-macosx-10.11-intel.dmg 'https://download.splunk.com/products/splunk/releases/$version/osx/splunk-$version-$build-macosx-10.11-intel.dmg'"
 	echo "wget -O splunkforwarder-$version-$build-macosx-10.11-intel.dmg 'https://download.splunk.com/products/universalforwarder/releases/$version/osx/splunkforwarder-$version-$build-macosx-10.11-intel.dmg'"
+	echo
+	echo
+	echo "-------- Solaris --------"
+	echo 
+	echo "-- TarZ"
+	echo "wget -O splunk-$version-$build-SunOS-sparc.tar.Z 'https://download.splunk.com/products/splunk/releases/$version/solaris/splunkforwarder-$version-$build-SunOS-sparc.tar.Z'"
+	echo "wget -O splunkforwarder-$version-$build-SunOS-sparc.tar.Z 'https://download.splunk.com/products/universalforwarder/releases/$version/solaris/splunkforwarder-$version-$build-SunOS-sparc.tar.Z'"
+	echo 
+	echo "-- P5P"
+	echo "wget -O splunk-$version-$build-solaris-sparc.p5p 'https://download.splunk.com/products/splunk/releases/$version/solaris/splunkforwarder-$version-$build-solaris-sparc.p5p'"
+	echo "wget -O splunkforwarder-$version-$build-solaris-sparc.p5p 'https://download.splunk.com/products/universalforwarder/releases/$version/solaris/splunkforwarder-$version-$build-solaris-sparc.p5p'"
+	echo
+	echo
+	echo "-------- AIX --------"
+	echo
+	echo "--PowerPC"
+	echo "wget -O splunk-$version-$build-AIX-powerpc.tgz 'https://download.splunk.com/products/splunk/releases/$version/aix/splunk-$version-$build-AIX-powerpc.tgz'"
+	echo "wget -O splunkforwarder-$version-$build-AIX-powerpc.tgz 'https://download.splunk.com/products/universalforwarder/releases/$version/aix/splunk-$version-$build-AIX-powerpc.tgz'"
+	echo
 
 fi
 echo
