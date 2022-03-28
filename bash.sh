@@ -100,6 +100,23 @@ elif [ $grabLatest = "n" ]; then
 	exit 1
 	fi
 	
+	warn=$(echo $req_version | grep -oE "." | head -1)
+	if [ "$warn" -lt "8" ]; then
+	clear
+	echo
+	echo
+	echo  -e "\033[33;5m==WARNING==\033[0m"
+	echo
+	echo "According to Splunk documentation, you are attempting to download an unsupported version of Splunk. If you download this, and then submit a support case for anything other than using this to upgrade to a supported version, that's bad, and you should feel bad. Relevant Docs: https://docs.splunk.com/Documentation/VersionCompatibility/current/Matrix/CompatMatrix .. Please make the right decision to stay on supported versions of Splunk, for Security and Sustainability. And for support sanity."
+	echo
+	sleep 2
+	echo "Would you like to continue? (y/n)"
+	read continue
+		if [ $continue = "n" ]; then
+		exit 1
+		fi
+	fi
+
 	version=$(echo $choice | sed 's/,.*//g')
 	build=$(echo $choice | sed 's/.*,//g')
 	
