@@ -84,7 +84,7 @@ if [ $grabLatest = "y" ]; then
 	echo
 	echo "-------- AIX --------"
 	echo
-	echo "--PowerPC"
+	echo "-- PowerPC"
 	echo "wget -O splunk-$version-$build-AIX-powerpc.tgz 'https://download.splunk.com/products/splunk/releases/$version/aix/splunk-$version-$build-AIX-powerpc.tgz'"
 	echo "wget -O splunkforwarder-$version-$build-AIX-powerpc.tgz 'https://download.splunk.com/products/universalforwarder/releases/$version/aix/splunk-$version-$build-AIX-powerpc.tgz'"
 	echo
@@ -180,7 +180,7 @@ elif [ $grabLatest = "n" ]; then
 	echo
 	echo "-------- AIX --------"
 	echo
-	echo "--PowerPC"
+	echo "-- PowerPC"
 	echo "wget -O splunk-$version-$build-AIX-powerpc.tgz 'https://download.splunk.com/products/splunk/releases/$version/aix/splunk-$version-$build-AIX-powerpc.tgz'"
 	echo "wget -O splunkforwarder-$version-$build-AIX-powerpc.tgz 'https://download.splunk.com/products/universalforwarder/releases/$version/aix/splunk-$version-$build-AIX-powerpc.tgz'"
 	echo
