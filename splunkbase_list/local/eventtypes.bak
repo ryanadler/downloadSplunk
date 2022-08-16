@@ -1,0 +1,6 @@
+
+[full_base]
+search = index="splunkbase" source="/opt/data/splunkbase/full_apps.list"
+
+[active_base]
+search = index="splunkbase" source="/opt/data/splunkbase/active_apps.list"
