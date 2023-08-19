@@ -1,11 +1,10 @@
 #!/bin/bash
 
 wget -O splunkDownload.html 'https://www.splunk.com/en_us/download/splunk-enterprise.html' -q
-base=$(cat splunkDownload.html | grep -oE "splunk\-[[:digit:]].*linux-2.6-x86_64.rpm\" data-link" | sed 's/\".*//g' | head -1)
-version=$(echo $base | grep -oe "\([[:digit:]]\.[[:digit:]]\.[[:digit:]]\.[[:digit:]]\|[[:digit:]]\.[[:digit:]]\.[[:digit:]]\)")
-build=$(echo $base | grep -oe "\w\{7,\}")
+version=$(cat splunkDownload.html | grep -oE "data-link\=\"https://.*data-md5" | head -1 | grep -oE "splunk-.*\"" | sed "s/splunk-//g" | sed "s/-.*//g")
+build=$(cat splunkDownload.html | grep -oE "data-link\=\"https://.*data-md5" | head -1 | grep -oE "splunk-.*\"" | grep -oE "[[:digit:]]-\w+-" | sed 's/[[:digit:]]-//g' | sed 's/-//g')
 
-wget -O olderVersions.list 'https://www.splunk.com/page/previous_releases'
+wget -O olderVersions.list 'https://www.splunk.com/en_us/download/previous_releases.html'
 
 echo 
 echo "Checking Version Pages and Filling in Any Gaps"
