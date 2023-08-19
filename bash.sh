@@ -2,9 +2,8 @@
 
 version_list=$(curl -s https://raw.githubusercontent.com/ryanadler/downloadSplunk/main/version.list | grep -v version | grep -v missing | grep -vE "^#")
 wget -O splunkDownload.html 'https://www.splunk.com/en_us/download/splunk-enterprise.html' -q
-base=$(cat splunkDownload.html | grep -oE "splunk\-[[:digit:]].*linux-2.6-x86_64.rpm\" data-link" | sed 's/\".*//g' | head -1)
-version=$(echo $base | grep -oe "\([[:digit:]]\.[[:digit:]]\.[[:digit:]]\.[[:digit:]]\|[[:digit:]]\.[[:digit:]]\.[[:digit:]]\)")
-build=$(echo $base | grep -oe "\w\{7,\}")
+version=$(cat splunkDownload.html | grep -oE "data-link\=\"https://.*data-md5" | head -1 | grep -oE "splunk-.*\"" | sed "s/splunk-//g" | sed "s/-.*//g")
+build=$(cat splunkDownload.html | grep -oE "data-link\=\"https://.*data-md5" | head -1 | grep -oE "splunk-.*\"" | grep -oE "[[:digit:]]-\w+-" | sed 's/[[:digit:]]-//g' | sed 's/-//g')
 rm splunkDownload.html
 clear
 
