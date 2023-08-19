@@ -9,7 +9,8 @@ wget -O olderVersions.list 'https://www.splunk.com/en_us/download/previous_relea
 echo 
 echo "Checking Version Pages and Filling in Any Gaps"
 echo 
-cat olderVersions.list| grep -oE "data-filename=\"splunk-.*-.*-linux\-2.6-x86_64.rpm" | sed 's/\" data-link.*//g' | sed 's/data-filename=\"splunk-//g' | sed 's/-linux.*//g' | sed 's/\-/,/g' >> version.list 
+#cat olderVersions.list| grep -oE "data-filename=\"splunk-.*-.*-linux\-2.6-x86_64.rpm" | sed 's/\" data-link.*//g' | sed 's/data-filename=\"splunk-//g' | sed 's/-linux.*//g' | sed 's/\-/,/g' >> version.list 
+cat olderVersions.list | grep -oE "data-filename=\"splunk-.*\" data-link" | sort | uniq | sed 's/data-filename=\"splunk-//g' | grep rpm | sed 's/-linux.*//g' | sed 's/\.x86.*//g' | sed 's/-/,/g' >> version.list
 echo "version,build" >> new.list
 cat version.list | grep -v "version\,build" | sort | uniq >> new.list
 echo "$version,$build" >> new.list
