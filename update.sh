@@ -4,7 +4,8 @@ wget -O splunkDownload.html 'https://www.splunk.com/en_us/download/splunk-enterp
 version=$(cat splunkDownload.html | grep -oE "data-link\=\"https://.*data-md5" | head -1 | grep -oE "splunk-.*\"" | sed "s/splunk-//g" | sed "s/-.*//g")
 build=$(cat splunkDownload.html | grep -oE "data-link\=\"https://.*data-md5" | head -1 | grep -oE "splunk-.*\"" | grep -oE "[[:digit:]]-\w+-" | sed 's/[[:digit:]]-//g' | sed 's/-//g')
 
-wget -O olderVersions.list 'https://www.splunk.com/en_us/download/previous_releases.html'
+wget -O olderVersions.list 'https://www.splunk.com/en_us/download/previous-releases.html?locale=en_us'
+
 
 echo 
 echo "Checking Version Pages and Filling in Any Gaps"
