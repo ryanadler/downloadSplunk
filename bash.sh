@@ -36,12 +36,12 @@ if [ $grabLatest = "y" ]; then
         echo "wget -O splunkforwarder-$version-$build-Linux-x86_64.tgz 'https://download.splunk.com/products/universalforwarder/releases/$version/linux/splunkforwarder-$version-$build-Linux-x86_64.tgz'"
 	echo 
 	echo "-- Debian (DEB)"
-	echo "wget -O splunk-$version-$build-linux-2.6-amd64.deb 'https://download.splunk.com/products/splunk/releases/$version/linux/splunk-$version-$build-linux-2.6-amd64.deb'"
-	echo "wget -O splunkforwarder-$version-$build-linux-2.6-amd64.deb 'https://download.splunk.com/products/universalforwarder/releases/$version/linux/splunkforwarder-$version-$build-linux-2.6-amd64.deb'"
+	echo "wget -O splunk-$version-$build.amd64.deb 'https://download.splunk.com/products/splunk/releases/$version/linux/splunk-$version-$build.amd64.deb'"
+	echo "wget -O splunkforwarder-$version-$build.amd64.deb 'https://download.splunk.com/products/universalforwarder/releases/$version/linux/splunkforwarder-$version-$build.amd64.deb'"
 	echo
 	echo "-- RHEL (RPM)"
-        echo "wget -O splunk-$version-$build-linux-2.6-x86_64.rpm 'https://download.splunk.com/products/splunk/releases/$version/linux/splunk-$version-$build-linux-2.6-x86_64.rpm'"
-        echo "wget -O splunkforwarder-$version-$build-linux-2.6-x86_64.rpm 'https://download.splunk.com/products/universalforwarder/releases/$version/linux/splunkforwarder-$version-$build-linux-2.6-x86_64.rpm'"
+        echo "wget -O splunk-$version-$build.x86_64.rpm 'https://download.splunk.com/products/splunk/releases/$version/linux/splunk-$version-$build.x86_64.rpm'"
+        echo "wget -O splunkforwarder-$version-$build.x86_64.rpm 'https://download.splunk.com/products/universalforwarder/releases/$version/linux/splunkforwarder-$version-$build.x86_64.rpm'"
         echo
 	echo 
         echo "-------- Windows --------"
@@ -132,12 +132,12 @@ elif [ $grabLatest = "n" ]; then
 	echo "wget -O splunkforwarder-$version-$build-Linux-x86_64.tgz 'https://download.splunk.com/products/universalforwarder/releases/$version/linux/splunkforwarder-$version-$build-Linux-x86_64.tgz'"
 	echo
 	echo "-- Debian (DEB)"
-	echo "wget -O splunk-$version-$build-linux-2.6-amd64.deb 'https://download.splunk.com/products/splunk/releases/$version/linux/splunk-$version-$build-linux-2.6-amd64.deb'"
-	echo "wget -O splunkforwarder-$version-$build-linux-2.6-amd64.deb 'https://download.splunk.com/products/universalforwarder/releases/$version/linux/splunkforwarder-$version-$build-linux-2.6-amd64.deb'"
+	echo "wget -O splunk-$version-$build.amd64.deb 'https://download.splunk.com/products/splunk/releases/$version/linux/splunk-$version-$build.amd64.deb'"
+	echo "wget -O splunkforwarder-$version-$build.amd64.deb 'https://download.splunk.com/products/universalforwarder/releases/$version/linux/splunkforwarder-$version-$build.amd64.deb'"
 	echo
 	echo "-- RHEL (RPM)"
-	echo "wget -O splunk-$version-$build-linux-2.6-x86_64.rpm 'https://download.splunk.com/products/splunk/releases/$version/linux/splunk-$version-$build-linux-2.6-x86_64.rpm'"
-	echo "wget -O splunkforwarder-$version-$build-linux-2.6-x86_64.rpm 'https://download.splunk.com/products/universalforwarder/releases/$version/linux/splunkforwarder-$version-$build-linux-2.6-x86_64.rpm'"
+	echo "wget -O splunk-$version-$build.x86_64.rpm 'https://download.splunk.com/products/splunk/releases/$version/linux/splunk-$version-$build.x86_64.rpm'"
+	echo "wget -O splunkforwarder-$version-$build.x86_64.rpm 'https://download.splunk.com/products/universalforwarder/releases/$version/linux/splunkforwarder-$version-$build.x86_64.rpm'"
 	echo
 	echo
 	echo "-------- Windows --------"
