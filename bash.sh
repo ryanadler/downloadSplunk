@@ -36,8 +36,8 @@ if [ $grabLatest = "y" ]; then
         echo "wget -O splunkforwarder-$version-$build-Linux-x86_64.tgz 'https://download.splunk.com/products/universalforwarder/releases/$version/linux/splunkforwarder-$version-$build-Linux-x86_64.tgz'"
 	echo 
 	echo "-- Debian (DEB)"
-	echo "wget -O splunk-$version-$build.amd64.deb 'https://download.splunk.com/products/splunk/releases/$version/linux/splunk-$version-$build.amd64.deb'"
-	echo "wget -O splunkforwarder-$version-$build.amd64.deb 'https://download.splunk.com/products/universalforwarder/releases/$version/linux/splunkforwarder-$version-$build.amd64.deb'"
+	echo "wget -O splunk-$version-$build-linux-2.6-amd64.deb 'https://download.splunk.com/products/splunk/releases/$version/linux/splunk-$version-$build-linux-2.6-amd64.deb'"
+	echo "wget -O splunkforwarder-$version-$build-linux-2.6-amd64.deb 'https://download.splunk.com/products/universalforwarder/releases/$version/linux/splunkforwarder-$version-$build-linux-2.6-amd64.deb'"
 	echo
 	echo "-- RHEL (RPM)"
         echo "wget -O splunk-$version-$build.x86_64.rpm 'https://download.splunk.com/products/splunk/releases/$version/linux/splunk-$version-$build.x86_64.rpm'"
@@ -50,10 +50,6 @@ if [ $grabLatest = "y" ]; then
         echo "wget -O splunk-$version-$build-x64-release.msi 'https://download.splunk.com/products/splunk/releases/$version/windows/splunk-$version-$build-x64-release.msi'"
         echo "wget -O splunkforwarder-$version-$build-x64-release.msi 'https://download.splunk.com/products/universalforwarder/releases/$version/windows/splunkforwarder-$version-$build-x64-release.msi'"
 	echo 
-	echo "-- ZIP"
-	echo "wget -O splunk-$version-$build-windows-64.zip 'https://download.splunk.com/products/splunk/releases/$version/windows/splunk-$version-$build-windows-64.zip'"
-	echo "wget -O splunkforwarder-$version-$build-windows-64.zip 'https://download.splunk.com/products/universalforwarder/releases/$version/windows/splunkforwarder-$version-$build-windows-64.zip'"
-	echo
 	echo
 	echo "-------- Mac --------"
 	echo
@@ -61,31 +57,11 @@ if [ $grabLatest = "y" ]; then
 	echo "wget -O splunk-$version-$build-darwin-64.tgz 'https://download.splunk.com/products/splunk/releases/$version/osx/splunk-$version-$build-darwin-64.tgz'"
 	echo "wget -O splunkforwarder-$version-$build-darwin-64.tgz 'https://download.splunk.com/products/universalforwarder/releases/$version/osx/splunkforwarder-$version-$build-darwin-64.tgz'"
 	echo
-	echo "-- Intel (DMG)"
-	echo "wget -O splunk-$version-$build-macosx-intel.dmg 'https://download.splunk.com/products/splunk/releases/$version/osx/splunk-$version-$build-macosx-intel.dmg'"
-	echo "wget -O splunkforwarder-$version-$build-macosx-intel.dmg 'https://download.splunk.com/products/universalforwarder/releases/$version/osx/splunkforwarder-$version-$build-macosx-intel.dmg'"
-	echo
 	echo "-- Intel 10.11 (DMG)"
 	echo "wget -O splunk-$version-$build-macosx-10.11-intel.dmg 'https://download.splunk.com/products/splunk/releases/$version/osx/splunk-$version-$build-macosx-10.11-intel.dmg'"
 	echo "wget -O splunkforwarder-$version-$build-macosx-10.11-intel.dmg 'https://download.splunk.com/products/universalforwarder/releases/$version/osx/splunkforwarder-$version-$build-macosx-10.11-intel.dmg'"
 	echo
 	echo
-	echo "-------- Solaris --------"
-	echo 
-	echo "-- TarZ"
-	echo "wget -O splunk-$version-$build-SunOS-sparc.tar.Z 'https://download.splunk.com/products/splunk/releases/$version/solaris/splunkforwarder-$version-$build-SunOS-sparc.tar.Z'"
-	echo "wget -O splunkforwarder-$version-$build-SunOS-sparc.tar.Z 'https://download.splunk.com/products/universalforwarder/releases/$version/solaris/splunkforwarder-$version-$build-SunOS-sparc.tar.Z'"
-	echo 
-	echo "-- P5P"
-	echo "wget -O splunk-$version-$build-solaris-sparc.p5p 'https://download.splunk.com/products/splunk/releases/$version/solaris/splunkforwarder-$version-$build-solaris-sparc.p5p'"
-	echo "wget -O splunkforwarder-$version-$build-solaris-sparc.p5p 'https://download.splunk.com/products/universalforwarder/releases/$version/solaris/splunkforwarder-$version-$build-solaris-sparc.p5p'"
-	echo
-	echo
-	echo "-------- AIX --------"
-	echo
-	echo "-- PowerPC"
-	echo "wget -O splunk-$version-$build-AIX-powerpc.tgz 'https://download.splunk.com/products/splunk/releases/$version/aix/splunk-$version-$build-AIX-powerpc.tgz'"
-	echo "wget -O splunkforwarder-$version-$build-AIX-powerpc.tgz 'https://download.splunk.com/products/universalforwarder/releases/$version/aix/splunk-$version-$build-AIX-powerpc.tgz'"
 	echo
 
 elif [ $grabLatest = "n" ]; then
@@ -132,8 +108,8 @@ elif [ $grabLatest = "n" ]; then
 	echo "wget -O splunkforwarder-$version-$build-Linux-x86_64.tgz 'https://download.splunk.com/products/universalforwarder/releases/$version/linux/splunkforwarder-$version-$build-Linux-x86_64.tgz'"
 	echo
 	echo "-- Debian (DEB)"
-	echo "wget -O splunk-$version-$build.amd64.deb 'https://download.splunk.com/products/splunk/releases/$version/linux/splunk-$version-$build.amd64.deb'"
-	echo "wget -O splunkforwarder-$version-$build.amd64.deb 'https://download.splunk.com/products/universalforwarder/releases/$version/linux/splunkforwarder-$version-$build.amd64.deb'"
+	echo "wget -O splunk-$version-$build-linux-2.6-amd64.deb 'https://download.splunk.com/products/splunk/releases/$version/linux/splunk-$version-$build-linux-2.6-amd64.deb'"
+	echo "wget -O splunkforwarder-$version-$build-linux-2.6-amd64.deb 'https://download.splunk.com/products/universalforwarder/releases/$version/linux/splunkforwarder-$version-$build-linux-2.6-amd64.deb'"
 	echo
 	echo "-- RHEL (RPM)"
 	echo "wget -O splunk-$version-$build.x86_64.rpm 'https://download.splunk.com/products/splunk/releases/$version/linux/splunk-$version-$build.x86_64.rpm'"
@@ -157,31 +133,10 @@ elif [ $grabLatest = "n" ]; then
 	echo "wget -O splunk-$version-$build-darwin-64.tgz 'https://download.splunk.com/products/splunk/releases/$version/osx/splunk-$version-$build-darwin-64.tgz'"
 	echo "wget -O splunkforwarder-$version-$build-darwin-64.tgz 'https://download.splunk.com/products/universalforwarder/releases/$version/osx/splunkforwarder-$version-$build-darwin-64.tgz'"
 	echo
-	echo "-- Intel (DMG)"
-	echo "wget -O splunk-$version-$build-macosx-intel.dmg 'https://download.splunk.com/products/splunk/releases/$version/osx/splunk-$version-$build-macosx-intel.dmg'"
-	echo "wget -O splunkforwarder-$version-$build-macosx-intel.dmg 'https://download.splunk.com/products/universalforwarder/releases/$version/osx/splunkforwarder-$version-$build-macosx-intel.dmg'"
-	echo
 	echo "-- Intel 10.11 (DMG)"
 	echo "wget -O splunk-$version-$build-macosx-10.11-intel.dmg 'https://download.splunk.com/products/splunk/releases/$version/osx/splunk-$version-$build-macosx-10.11-intel.dmg'"
 	echo "wget -O splunkforwarder-$version-$build-macosx-10.11-intel.dmg 'https://download.splunk.com/products/universalforwarder/releases/$version/osx/splunkforwarder-$version-$build-macosx-10.11-intel.dmg'"
 	echo
-	echo
-	echo "-------- Solaris --------"
-	echo 
-	echo "-- TarZ"
-	echo "wget -O splunk-$version-$build-SunOS-sparc.tar.Z 'https://download.splunk.com/products/splunk/releases/$version/solaris/splunkforwarder-$version-$build-SunOS-sparc.tar.Z'"
-	echo "wget -O splunkforwarder-$version-$build-SunOS-sparc.tar.Z 'https://download.splunk.com/products/universalforwarder/releases/$version/solaris/splunkforwarder-$version-$build-SunOS-sparc.tar.Z'"
-	echo 
-	echo "-- P5P"
-	echo "wget -O splunk-$version-$build-solaris-sparc.p5p 'https://download.splunk.com/products/splunk/releases/$version/solaris/splunkforwarder-$version-$build-solaris-sparc.p5p'"
-	echo "wget -O splunkforwarder-$version-$build-solaris-sparc.p5p 'https://download.splunk.com/products/universalforwarder/releases/$version/solaris/splunkforwarder-$version-$build-solaris-sparc.p5p'"
-	echo
-	echo
-	echo "-------- AIX --------"
-	echo
-	echo "-- PowerPC"
-	echo "wget -O splunk-$version-$build-AIX-powerpc.tgz 'https://download.splunk.com/products/splunk/releases/$version/aix/splunk-$version-$build-AIX-powerpc.tgz'"
-	echo "wget -O splunkforwarder-$version-$build-AIX-powerpc.tgz 'https://download.splunk.com/products/universalforwarder/releases/$version/aix/splunk-$version-$build-AIX-powerpc.tgz'"
 	echo
 
 fi
