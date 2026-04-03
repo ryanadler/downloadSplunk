@@ -47,8 +47,8 @@ if [ $grabLatest = "y" ]; then
         echo "-------- Windows --------"
         echo
 	echo "-- Binary (MSI)"
-        echo "wget -O splunk-$version-$build-x64-release.msi 'https://download.splunk.com/products/splunk/releases/$version/windows/splunk-$version-$build-x64-release.msi'"
-        echo "wget -O splunkforwarder-$version-$build-x64-release.msi 'https://download.splunk.com/products/universalforwarder/releases/$version/windows/splunkforwarder-$version-$build-x64-release.msi'"
+        echo "wget -O splunk-$version-$build-windows-x64.msi 'https://download.splunk.com/products/splunk/releases/$version/windows/splunk-$version-$build-windows-x64.msi'"
+        echo "wget -O splunkforwarder-$version-$build-windows-x64.msi 'https://download.splunk.com/products/universalforwarder/releases/$version/windows/splunkforwarder-$version-$build-windows-x64.msi'"
 	echo 
 	echo
 	echo "-------- Mac --------"
@@ -119,12 +119,8 @@ elif [ $grabLatest = "n" ]; then
 	echo "-------- Windows --------"
 	echo
 	echo "-- Binary (MSI)"
-	echo "wget -O splunk-$version-$build-x64-release.msi 'https://download.splunk.com/products/splunk/releases/$version/windows/splunk-$version-$build-x64-release.msi'"
-	echo "wget -O splunkforwarder-$version-$build-x64-release.msi 'https://download.splunk.com/products/universalforwarder/releases/$version/windows/splunkforwarder-$version-$build-x64-release.msi'"
-	echo
-	echo "-- ZIP"
-	echo "wget -O splunk-$version-$build-windows-64.zip 'https://download.splunk.com/products/splunk/releases/$version/windows/splunk-$version-$build-windows-64.zip'"
-	echo "wget -O splunkforwarder-$version-$build-windows-64.zip 'https://download.splunk.com/products/universalforwarder/releases/$version/windows/splunkforwarder-$version-$build-windows-64.zip'"
+	echo "wget -O splunk-$version-$build-windows-x64.msi 'https://download.splunk.com/products/splunk/releases/$version/windows/splunk-$version-$build-windows-x64.msi'"
+	echo "wget -O splunkforwarder-$version-$build-windows-x64.msi 'https://download.splunk.com/products/universalforwarder/releases/$version/windows/splunkforwarder-$version-$build-windows-x64.msi'"
 	echo
 	echo
 	echo "-------- Mac --------"
