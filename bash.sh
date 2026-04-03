@@ -32,12 +32,12 @@ if [ $grabLatest = "y" ]; then
         echo "-------- Linux --------"
         echo
 	echo "-- Tarball (TGZ)"
-        echo "wget -O splunk-$version-$build-Linux-x86_64.tgz 'https://download.splunk.com/products/splunk/releases/$version/linux/splunk-$version-$build-Linux-x86_64.tgz'"
-        echo "wget -O splunkforwarder-$version-$build-Linux-x86_64.tgz 'https://download.splunk.com/products/universalforwarder/releases/$version/linux/splunkforwarder-$version-$build-Linux-x86_64.tgz'"
+        echo "wget -O splunk-$version-$build-linux-amd64.tgz 'https://download.splunk.com/products/splunk/releases/$version/linux/splunk-$version-$build-linux-amd64.tgz'"
+        echo "wget -O splunkforwarder-$version-$build-linux-amd64.tgz 'https://download.splunk.com/products/universalforwarder/releases/$version/linux/splunkforwarder-$version-$build-linux-amd64.tgz'"
 	echo 
 	echo "-- Debian (DEB)"
-	echo "wget -O splunk-$version-$build-linux-2.6-amd64.deb 'https://download.splunk.com/products/splunk/releases/$version/linux/splunk-$version-$build-linux-2.6-amd64.deb'"
-	echo "wget -O splunkforwarder-$version-$build-linux-2.6-amd64.deb 'https://download.splunk.com/products/universalforwarder/releases/$version/linux/splunkforwarder-$version-$build-linux-2.6-amd64.deb'"
+	echo "wget -O splunk-$version-$build-linux-amd64.deb 'https://download.splunk.com/products/splunk/releases/$version/linux/splunk-$version-$build-linux-amd64.deb'"
+	echo "wget -O splunkforwarder-$version-$build-linux-amd64.deb 'https://download.splunk.com/products/universalforwarder/releases/$version/linux/splunkforwarder-$version-$build-linux-amd64.deb'"
 	echo
 	echo "-- RHEL (RPM)"
         echo "wget -O splunk-$version-$build.x86_64.rpm 'https://download.splunk.com/products/splunk/releases/$version/linux/splunk-$version-$build.x86_64.rpm'"
@@ -47,19 +47,19 @@ if [ $grabLatest = "y" ]; then
         echo "-------- Windows --------"
         echo
 	echo "-- Binary (MSI)"
-        echo "wget -O splunk-$version-$build-x64-release.msi 'https://download.splunk.com/products/splunk/releases/$version/windows/splunk-$version-$build-x64-release.msi'"
-        echo "wget -O splunkforwarder-$version-$build-x64-release.msi 'https://download.splunk.com/products/universalforwarder/releases/$version/windows/splunkforwarder-$version-$build-x64-release.msi'"
+        echo "wget -O splunk-$version-$build-windows-x64.msi 'https://download.splunk.com/products/splunk/releases/$version/windows/splunk-$version-$build-windows-x64.msi'"
+        echo "wget -O splunkforwarder-$version-$build-windows-x64.msi 'https://download.splunk.com/products/universalforwarder/releases/$version/windows/splunkforwarder-$version-$build-windows-x64.msi'"
 	echo 
 	echo
 	echo "-------- Mac --------"
 	echo
 	echo "-- Tarball (TGZ)"
-	echo "wget -O splunk-$version-$build-darwin-64.tgz 'https://download.splunk.com/products/splunk/releases/$version/osx/splunk-$version-$build-darwin-64.tgz'"
-	echo "wget -O splunkforwarder-$version-$build-darwin-64.tgz 'https://download.splunk.com/products/universalforwarder/releases/$version/osx/splunkforwarder-$version-$build-darwin-64.tgz'"
+	echo "wget -O splunk-$version-$build-darwin-intel.tgz 'https://download.splunk.com/products/splunk/releases/$version/osx/splunk-$version-$build-darwin-intel.tgz'"
+	echo "wget -O splunkforwarder-$version-$build-darwin-intel.tgz 'https://download.splunk.com/products/universalforwarder/releases/$version/osx/splunkforwarder-$version-$build-darwin-intel.tgz'"
 	echo
 	echo "-- Intel 10.11 (DMG)"
-	echo "wget -O splunk-$version-$build-macosx-10.11-intel.dmg 'https://download.splunk.com/products/splunk/releases/$version/osx/splunk-$version-$build-macosx-10.11-intel.dmg'"
-	echo "wget -O splunkforwarder-$version-$build-macosx-10.11-intel.dmg 'https://download.splunk.com/products/universalforwarder/releases/$version/osx/splunkforwarder-$version-$build-macosx-10.11-intel.dmg'"
+	echo "wget -O splunk-$version-$build-darwin-intel.dmg 'https://download.splunk.com/products/splunk/releases/$version/osx/splunk-$version-$build-darwin-intel.dmg'"
+	echo "wget -O splunkforwarder-$version-$build-darwin-intel.dmg 'https://download.splunk.com/products/universalforwarder/releases/$version/osx/splunkforwarder-$version-$build-darwin-intel.dmg'"
 	echo
 	echo
 	echo
@@ -104,12 +104,12 @@ elif [ $grabLatest = "n" ]; then
 	echo "-------- Linux --------"
 	echo
 	echo "-- Tarball (TGZ)"
-	echo "wget -O splunk-$version-$build-Linux-x86_64.tgz 'https://download.splunk.com/products/splunk/releases/$version/linux/splunk-$version-$build-Linux-x86_64.tgz'"
-	echo "wget -O splunkforwarder-$version-$build-Linux-x86_64.tgz 'https://download.splunk.com/products/universalforwarder/releases/$version/linux/splunkforwarder-$version-$build-Linux-x86_64.tgz'"
+	echo "wget -O splunk-$version-$build-linux-amd64.tgz 'https://download.splunk.com/products/splunk/releases/$version/linux/splunk-$version-$build-linux-amd64.tgz'"
+	echo "wget -O splunkforwarder-$version-$build-linux-amd64.tgz 'https://download.splunk.com/products/universalforwarder/releases/$version/linux/splunkforwarder-$version-$build-linux-amd64.tgz'"
 	echo
 	echo "-- Debian (DEB)"
-	echo "wget -O splunk-$version-$build-linux-2.6-amd64.deb 'https://download.splunk.com/products/splunk/releases/$version/linux/splunk-$version-$build-linux-2.6-amd64.deb'"
-	echo "wget -O splunkforwarder-$version-$build-linux-2.6-amd64.deb 'https://download.splunk.com/products/universalforwarder/releases/$version/linux/splunkforwarder-$version-$build-linux-2.6-amd64.deb'"
+	echo "wget -O splunk-$version-$build-linux-amd64.deb 'https://download.splunk.com/products/splunk/releases/$version/linux/splunk-$version-$build-linux-amd64.deb'"
+	echo "wget -O splunkforwarder-$version-$build-linux-amd64.deb 'https://download.splunk.com/products/universalforwarder/releases/$version/linux/splunkforwarder-$version-$build-linux-amd64.deb'"
 	echo
 	echo "-- RHEL (RPM)"
 	echo "wget -O splunk-$version-$build.x86_64.rpm 'https://download.splunk.com/products/splunk/releases/$version/linux/splunk-$version-$build.x86_64.rpm'"
@@ -119,23 +119,19 @@ elif [ $grabLatest = "n" ]; then
 	echo "-------- Windows --------"
 	echo
 	echo "-- Binary (MSI)"
-	echo "wget -O splunk-$version-$build-x64-release.msi 'https://download.splunk.com/products/splunk/releases/$version/windows/splunk-$version-$build-x64-release.msi'"
-	echo "wget -O splunkforwarder-$version-$build-x64-release.msi 'https://download.splunk.com/products/universalforwarder/releases/$version/windows/splunkforwarder-$version-$build-x64-release.msi'"
-	echo
-	echo "-- ZIP"
-	echo "wget -O splunk-$version-$build-windows-64.zip 'https://download.splunk.com/products/splunk/releases/$version/windows/splunk-$version-$build-windows-64.zip'"
-	echo "wget -O splunkforwarder-$version-$build-windows-64.zip 'https://download.splunk.com/products/universalforwarder/releases/$version/windows/splunkforwarder-$version-$build-windows-64.zip'"
+	echo "wget -O splunk-$version-$build-windows-x64.msi 'https://download.splunk.com/products/splunk/releases/$version/windows/splunk-$version-$build-windows-x64.msi'"
+	echo "wget -O splunkforwarder-$version-$build-windows-x64.msi 'https://download.splunk.com/products/universalforwarder/releases/$version/windows/splunkforwarder-$version-$build-windows-x64.msi'"
 	echo
 	echo
 	echo "-------- Mac --------"
 	echo
 	echo "-- Tarball (TGZ)"
-	echo "wget -O splunk-$version-$build-darwin-64.tgz 'https://download.splunk.com/products/splunk/releases/$version/osx/splunk-$version-$build-darwin-64.tgz'"
-	echo "wget -O splunkforwarder-$version-$build-darwin-64.tgz 'https://download.splunk.com/products/universalforwarder/releases/$version/osx/splunkforwarder-$version-$build-darwin-64.tgz'"
+	echo "wget -O splunk-$version-$build-darwin-intel.tgz 'https://download.splunk.com/products/splunk/releases/$version/osx/splunk-$version-$build-darwin-intel.tgz'"
+	echo "wget -O splunkforwarder-$version-$build-darwin-intel.tgz 'https://download.splunk.com/products/universalforwarder/releases/$version/osx/splunkforwarder-$version-$build-darwin-intel.tgz'"
 	echo
 	echo "-- Intel 10.11 (DMG)"
-	echo "wget -O splunk-$version-$build-macosx-10.11-intel.dmg 'https://download.splunk.com/products/splunk/releases/$version/osx/splunk-$version-$build-macosx-10.11-intel.dmg'"
-	echo "wget -O splunkforwarder-$version-$build-macosx-10.11-intel.dmg 'https://download.splunk.com/products/universalforwarder/releases/$version/osx/splunkforwarder-$version-$build-macosx-10.11-intel.dmg'"
+	echo "wget -O splunk-$version-$build-darwin-intel.dmg 'https://download.splunk.com/products/splunk/releases/$version/osx/splunk-$version-$build-darwin-intel.dmg'"
+	echo "wget -O splunkforwarder-$version-$build-darwin-intel.dmg 'https://download.splunk.com/products/universalforwarder/releases/$version/osx/splunkforwarder-$version-$build-darwin-intel.dmg'"
 	echo
 	echo
 
