@@ -65,7 +65,7 @@ if [ $grabLatest = "y" ]; then
 	echo
 
 elif [ $grabLatest = "n" ]; then
-        echo "Which version would you like? Example: (8.1.8 or 7.2.10.1)"
+        echo "Which version would you like? Example: (9.3.11 or 9.4.10)"
         read req_version
 	choice=$(echo $version_list | sed 's/ /\n/g' | grep -F "$req_version")
 
@@ -75,8 +75,8 @@ elif [ $grabLatest = "n" ]; then
 	exit 1
 	fi
 	
-	warn=$(echo $req_version | grep -oE "." | head -1)
-	if [ "$warn" -lt "8" ]; then
+	warn=$(echo $req_version | grep -oE "[[:digit:]]+" | head -1)
+	if [ "$warn" -lt "9" ]; then
 	clear
 	echo
 	echo
