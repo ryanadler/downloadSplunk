@@ -5,12 +5,9 @@ wget -O splunkDownload.html 'https://www.splunk.com/en_us/download/splunk-enterp
 version=$(cat splunkDownload.html | grep -oE "data-link\=\"https://.*data-md5" | head -1 | grep -oE "splunk-.*\"" | sed "s/splunk-//g" | sed "s/-.*//g")
 build=$(cat splunkDownload.html | grep -oE "data-link\=\"https://.*data-md5" | head -1 | grep -oE "splunk-.*\"" | grep -oE "[[:digit:]]-\w+-" | sed 's/^[[:digit:]]-//g' | sed 's/-//g')
 rm splunkDownload.html
-rm tmpDate_*
 clear
 
-tmpDate=$(date +%s)
-
-for entry in $(cat version.list | grep -oE "^[[:digit:]]+\.[[:digit:]]+" | sort | uniq) ;do cat version.list | grep -i $entry | sort -V | uniq | tail -1 ; done > tmpDate_$tmpDate
+non_new=$(for entry in $(echo $version_list | sed 's/ /\n/g' | grep -oE "^[[:digit:]]+\.[[:digit:]]+" | sort | uniq) ; do echo $version_list | sed 's/ /\n/g' | grep -Fe "$entry" | sed 's/,.*//g' |  sort -V |  tail -1 ; done)
 
 # Engage with the User
 echo
@@ -73,7 +70,7 @@ elif [ $grabLatest = "n" ]; then
         echo "Which version would you like? Example: (9.4.12 or 10.2.3)"
 	echo
 	echo "For Ease the following versions represent the latest recent and supported versions:"
-	cat  tmpDate_$tmpDate | sed 's/\,.*//g' | sort -V
+	echo "$non_new" | sed 's/\,.*//g' | sort -V
 	echo
         read req_version
 	choice=$(echo $version_list | sed 's/ /\n/g' | grep -F "$req_version")
@@ -146,7 +143,6 @@ elif [ $grabLatest = "n" ]; then
 
 fi
 
-rm -f tmpDate_$tmpDate
 
 echo
 echo "Thank you, and have a day"
