@@ -143,7 +143,6 @@ elif [ $grabLatest = "n" ]; then
 
 fi
 
-rm -f tmpDate_$tmpDate
 
 echo
 echo "Thank you, and have a day"
