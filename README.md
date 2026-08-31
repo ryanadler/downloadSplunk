@@ -10,3 +10,4 @@ You may need to install the Windows Subsystem for Linux (WSL) in order to utiliz
 The `update.sh` and `version.list` files are used to update the repo's list of versions and builds that Splunk has produced. Some are now unsupported, deprecated, or no longer available. In some cases, it may be necessary to download an older version in order to properly upgrade or remove a version of Splunk.
 
 Download and install with caution, and behave responsibly.
+
