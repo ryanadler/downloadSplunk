@@ -13,8 +13,14 @@ Download and install with caution, and behave responsibly.
 
 ## Latest Supported Versions
 10.6.1.1
+<br>
 10.4.4
+<br>
 10.2.8
+<br>
 10.0.11
+<br>
 9.4.16
+<br>
 9.3.14
+<br>
