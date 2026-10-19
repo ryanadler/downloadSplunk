@@ -7,7 +7,14 @@ For Linux and MacOS:
 For Windows:
 You may need to install the Windows Subsystem for Linux (WSL) in order to utilize `./bash.sh` through powershell. 
 
-The `update.sh` and `version.list` files are used to update the repo's list of versions and builds that Splunk has produced. Some are now unsupported, deprecated, or no longer available. In some cases, it may be necessary to download an older version in order to properly upgrade or remove a version of Splunk.
+The `update.sh` and `version.list` files are used to update the repo's list of versions and builds that Splunk has produced. Some of which are now unsupported, deprecated, or no longer available. In some cases, it may be necessary to download an older version in order to properly upgrade or remove a version of Splunk.
 
 Download and install with caution, and behave responsibly.
 
+## Latest Supported Versions
+>> 10.6.1.1
+>> 10.4.4
+>> 10.2.8
+>> 10.0.11
+>> 9.4.16
+>> 9.3.14
