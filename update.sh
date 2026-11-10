@@ -6,7 +6,7 @@ build=$(cat splunkDownload.html | grep -oE "data-link\=\"https://.*data-md5" | h
 
 wget -O olderVersions.list 'https://www.splunk.com/en_us/download/previous-releases.html?locale=en_us'
 
-
+## Update
 echo 
 echo "Checking Version Pages and Filling in Any Gaps"
 echo 
