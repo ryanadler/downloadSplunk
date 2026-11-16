@@ -1,10 +1,10 @@
 #!/bin/bash
 
-wget -O splunkDownload.html 'https://www.splunk.com/en_us/download/splunk-enterprise.html' -q
+wget --user-agent="Mozilla" -O splunkDownload.html 'https://www.splunk.com/en_us/download/splunk-enterprise.html' -q
 version=$(cat splunkDownload.html | grep -oE "data-link\=\"https://.*data-md5" | head -1 | grep -oE "splunk-.*\"" | sed "s/splunk-//g" | sed "s/-.*//g")
 build=$(cat splunkDownload.html | grep -oE "data-link\=\"https://.*data-md5" | head -1 | grep -oE "splunk-.*\"" | grep -oE "[[:digit:]]-\w+-" | sed 's/^[[:digit:]]-//g' | sed 's/-//g')
 
-wget -O olderVersions.list 'https://www.splunk.com/en_us/download/previous-releases.html?locale=en_us'
+wget --user-agent="Mozilla" -v -O olderVersions.list 'https://www.splunk.com/en_us/download/previous-releases.html'
 
 ## Update
 echo 
