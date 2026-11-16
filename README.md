@@ -14,13 +14,13 @@ Download and install with caution, and behave responsibly.
 ## Latest Supported Versions
 10.6.1.1
 <br>
-10.4.4
+10.4.5
 <br>
-10.2.8
+10.2.9
 <br>
-10.0.11
+10.0.12
 <br>
-9.4.16
+9.4.17
 <br>
 9.3.14
 <br>
