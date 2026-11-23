@@ -12,7 +12,7 @@ The `update.sh` and `version.list` files are used to update the repo's list of v
 Download and install with caution, and behave responsibly.
 
 ## Latest Supported Versions
-10.6.1.1
+10.6.2.5
 <br>
 10.4.5
 <br>
